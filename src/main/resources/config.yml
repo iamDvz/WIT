@@ -1,6 +1,10 @@
 format-of-mythic-mobs-string: "{name} {level} {health}"
 show-level-of-mythic-mobs: true
 show-health-of-mythic-mobs: true
-mythic-mob-health-bar-empty: "§♥"
-mythic-mob-health-bar-full: "§♥"
+mythic-mob-health-bar-empty: "§7♥"
+mythic-mob-health-bar-full: "§с♥"
 nothing-string: "Nothing"
+mob-and-it-parameters:
+  AngrySludge:
+      icon: "SLIMYICON"
+      description: "SLIMYDESCRIPTION"

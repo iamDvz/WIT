@@ -29,6 +29,10 @@ public class MythicMobs {
         ActiveMob activeMob = api.getMythicMobInstance(entity);
         return activeMob.getEntity().getHealth();
     }
+    public static String getMythicMobConfigName(Entity entity) {
+        ActiveMob activeMob = api.getMythicMobInstance(entity);
+        return activeMob.getType().getInternalName();
+    }
     public static double getMythicMobMaxHealth(Entity entity) {
         ActiveMob activeMob = api.getMythicMobInstance(entity);
         return activeMob.getEntity().getMaxHealth();

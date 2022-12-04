@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import ru.iamdvz.wit.WIT;
-import ru.iamdvz.wit.WITPlaceholders;
+import ru.iamdvz.wit.functions.WITFunc;
 
 public class WITCommands implements CommandExecutor {
     @Override
@@ -14,7 +14,7 @@ public class WITCommands implements CommandExecutor {
         String prefix = ChatColor.GREEN + "[WIT] " + ChatColor.WHITE;
         if (sender.hasPermission("wit.admin") && args[0].equalsIgnoreCase("reload")) {
             WIT.getInstance().reloadConfig();
-            WITPlaceholders.WITPlaceholdersReload();
+            WITFunc.WITPlaceholdersReload();
             sender.sendMessage(prefix + "Config reloaded");
             return true;
         }

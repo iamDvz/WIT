@@ -4,6 +4,7 @@ import org.bukkit.FluidCollisionMode
 import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 import org.bukkit.util.RayTraceResult
+import ru.iamdvz.wit.functions.WITFunc
 import java.lang.Math.round
 import kotlin.math.roundToInt
 
@@ -16,6 +17,6 @@ object Utils {
 
     @JvmStatic
     fun getRayTraceResult(player: Player): RayTraceResult? {
-        return player.world.rayTrace(player.eyeLocation.add(player.location.direction), player.eyeLocation.direction, 15.0, FluidCollisionMode.NEVER, false, 1.0) { entity: Entity -> entity.uniqueId != player.uniqueId }
+        return player.world.rayTrace(player.eyeLocation.add(player.location.direction), player.eyeLocation.direction, WITFunc.checkerDistance, FluidCollisionMode.NEVER, false, 1.0) { entity: Entity -> entity.uniqueId != player.uniqueId }
     }
 }

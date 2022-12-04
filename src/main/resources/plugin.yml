@@ -1,0 +1,21 @@
+name: WIT
+version: '${version}'
+main: ru.iamdvz.wit.WIT
+api-version: 1.16
+softdepend: [ PlaceholderAPI, MythicMobs ]
+authors: [ iamDvz ]
+description: Detects mobs, custom block and have support of PAPI
+website: iamDvz.ru
+
+commands:
+  whoisthat:
+    aliases: [wt, wit, whoisthat]
+    description: WhatIsThis command
+
+permissions:
+  wit.use:
+    description: used to control who can use whatisthis and where.
+    default: true
+  wit.admin:
+    description: needed for admin commands
+    default: op

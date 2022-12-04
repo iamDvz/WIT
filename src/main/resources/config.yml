@@ -1,0 +1,6 @@
+format-of-mythic-mobs-string: "{name} {level} {health}"
+show-level-of-mythic-mobs: true
+show-health-of-mythic-mobs: true
+mythic-mob-health-bar-empty: "§♥"
+mythic-mob-health-bar-full: "§♥"
+nothing-string: "Nothing"

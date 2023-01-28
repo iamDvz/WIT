@@ -23,10 +23,9 @@ repositories {
 }
 
 dependencies {
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
-    compileOnly("io.lumine:Mythic-Dist:5.0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.2")
-    implementation("com.github.iamDvz:DivizionCore:19f6b36c")
 }
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "16"

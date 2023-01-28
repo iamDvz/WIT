@@ -14,7 +14,7 @@ public class WITCommands implements CommandExecutor {
         String prefix = ChatColor.GREEN + "[WIT] " + ChatColor.WHITE;
         if (sender.hasPermission("wit.admin") && args[0].equalsIgnoreCase("reload")) {
             WIT.getInstance().reloadConfig();
-            WITFunc.WITPlaceholdersReload();
+            WITFunc.WITReload();
             sender.sendMessage(prefix + "Config reloaded");
             return true;
         }

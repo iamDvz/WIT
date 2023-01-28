@@ -3,18 +3,12 @@ package ru.iamdvz.wit;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.RayTraceResult;
 import org.jetbrains.annotations.NotNull;
 import ru.iamdvz.wit.functions.WITFunc;
-import ru.iamdvz.wit.utils.MythicMobs;
 import ru.iamdvz.wit.utils.Utils;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 public class WITPlaceholders extends PlaceholderExpansion {
     public WITPlaceholders(WIT plugin) {}
@@ -43,7 +37,7 @@ public class WITPlaceholders extends PlaceholderExpansion {
             return "NoPerms";
         RayTraceResult result = Utils.getRayTraceResult((Player) p);
         if (result == null || (result.getHitBlock() != null && !result.getHitBlock().getType().equals(Material.AIR)))
-            return WITFunc.nothingString;
+            return WITFunc.INSTANCE.getNothingString();
 
         if (identifier.equals("output")) {
             return WITFunc.outputFunction(result.getHitEntity());

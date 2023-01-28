@@ -11,8 +11,7 @@ import kotlin.math.roundToInt
 object Utils {
     @JvmStatic
     fun makeBar(empty: String, full: String, size: Int, max: Double, current: Double): String {
-        var s: String = (full.repeat((size * current / max).roundToInt()) + empty.repeat((size * (1 - current / max)).roundToInt()))
-        return s
+        return (full.repeat((size * current / max).roundToInt()) + empty.repeat((size * (1 - current / max)).roundToInt()))
     }
 
     @JvmStatic

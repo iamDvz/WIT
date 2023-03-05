@@ -2,6 +2,7 @@ package ru.iamdvz.wit.functions
 
 import org.bukkit.entity.Entity
 import ru.iamdvz.wit.WIT
+import ru.iamdvz.wit.utils.MythicMobUtil
 import ru.iamdvz.wit.utils.Utils.makeBar
 import java.util.*
 
@@ -29,28 +30,28 @@ object WITFunc {
 
     @JvmStatic
     fun outputFunction(entity: Entity?): String {
-        if (!MythicMobs.isMythicMob(entity)) {
+        if (!MythicMobUtil.isMythicMob(entity)) {
             return nothingString
         }
-        var s = stringFormat.replace("{name}", Objects.requireNonNull(WIT.getMythicMobUtil()(entity)))
-        if (showLvl) s = s.replace("{level}", MythicMobs.getMythicMobLevel(entity).toString())
-        if (showHealth) s = s.replace("{health}", MythicMobs.getMythicMobCurrentHealth(entity).toString())
-        return s.replace("{level}", "").replace("{health}", "")
+        var s = MythicMobUtil.getMythicMobDisplayName(entity)?.let { stringFormat.replace("{name}", it) }
+        if (showLvl) s = s?.replace("{level}", MythicMobUtil.getMythicMobLevel(entity).toString())
+        if (showHealth) s = s?.replace("{health}", MythicMobUtil.getMythicMobCurrentHealth(entity).toString())
+        return s?.replace("{level}", "")?.replace("{health}", "") ?: "NULL"
     }
 
     @JvmStatic
     fun healthBarFunc(entity: Entity?, size: Int): String {
-        return if (!MythicMobs.isMythicMob(entity)) { nothingString
-        } else makeBar(emptyChar, fullChar, size, MythicMobs.getMythicMobMaxHealth(entity), MythicMobs.getMythicMobCurrentHealth(entity))
+        return if (!MythicMobUtil.isMythicMob(entity)) { nothingString
+        } else makeBar(emptyChar, fullChar, size, MythicMobUtil.getMythicMobMaxHealth(entity), MythicMobUtil.getMythicMobCurrentHealth(entity))
     }
 
     @JvmStatic
     fun getParameter(entity: Entity?, parameter: String): String? {
-        if (!MythicMobs.isMythicMob(entity)) {
+        if (!MythicMobUtil.isMythicMob(entity)) {
             return nothingString
         }
-        return if (mobAndItString.contains(MythicMobs.getMythicMobConfigName(entity))) {
-            mobAndItString.getString(MythicMobs.getMythicMobConfigName(entity) + "." + parameter)
+        return if (mobAndItString.contains(MythicMobUtil.getMythicMobConfigName(entity))) {
+            mobAndItString.getString(MythicMobUtil.getMythicMobConfigName(entity) + "." + parameter)
         } else nothingString
     }
 }

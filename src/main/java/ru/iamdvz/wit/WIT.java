@@ -2,8 +2,6 @@ package ru.iamdvz.wit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import ru.iamdvz.core.DivizionCore;
-import ru.iamdvz.core.utils.MythicMobUtil;
 import ru.iamdvz.wit.commands.AutoTabCompleter;
 import ru.iamdvz.wit.commands.WITCommands;
 import java.util.Objects;
@@ -26,14 +24,10 @@ public final class WIT extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
     }
 
     public static WIT getInstance() {
         return instance;
-    }
-    public static MythicMobUtil getMythicMobUtil() {
-        return MythicMobUtil.INSTANCE;
     }
 
 }
